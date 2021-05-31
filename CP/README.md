@@ -12,3 +12,4 @@
       5. Intersection point in Y shaped linked lists
       6. Detect Loop in linked list
       7. Remove loop in Linked List
+[Lets go to Quora](https://www.quora.com)
