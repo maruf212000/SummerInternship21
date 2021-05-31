@@ -12,3 +12,5 @@
    5. [Intersection point in Y shaped linked lists](https://practice.geeksforgeeks.org/problems/intersection-point-in-y-shapped-linked-lists/1/)<br>
    6. [Detect Loop in linked list](https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1)<br>
    7. [Remove loop in Linked List](https://practice.geeksforgeeks.org/problems/remove-loop-in-linked-list/1)<br>
+   8. [Nth node from end of linked list](https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1)<br>
+   9. [Flattening a Linked List](https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1)<br>
