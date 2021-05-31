@@ -73,96 +73,93 @@ public:
 	Node<T>* rightRotate(Node<T>* shift)
 	{
 		//cout << "Right Shift val: " << shift->val << endl;
-		Node<T>* oldparent = shift->parent;
-		Node<T>* temp = shift->right;
- 		if (oldparent == root)
+		Node<T>* x = shift->left;
+
+		shift->left = x->right;
+		if (x->right != NULL)
+			x->right->parent = shift;
+		if (shift->parent == NULL)
 		{
-			root = shift;
-			shift->right = oldparent;
-			oldparent->left = NULL;
-			oldparent->parent = shift;
+			root = x;
+			x->parent = NULL;
+		}
+		else if (shift->parent->left == shift)
+		{
+			shift->parent->left = x;
+			x->parent = shift->parent;
 		}
 		else
 		{
-			//oldparent->parent->right = shift;
-			shift->parent = oldparent->parent;
-			oldparent->parent = shift;
-			shift->right = oldparent;
-			oldparent->left = temp;
-			if(temp!=NULL)
-				temp->parent = oldparent;
+			shift->parent->right = x;
+			x->parent = shift->parent;
 		}
+		x->right = shift;
+		shift->parent = x;
 		//print2DUtil(root, 0);
-		return shift;
+		return shift->parent;
 		
 	}
 
 	Node<T>* leftRotate(Node<T>* shift)
 	{
 		//cout << "Left Shift val: " << shift->val << endl;
-		Node<T>* oldparent = shift->parent;
-		Node<T>* temp = shift->left;
-		if (oldparent == root)
+		Node<T>* y = shift->right;
+		
+		shift->right = y->left;
+		if (y->left != NULL)
+			y->left->parent = shift;
+		if (shift->parent == NULL)
 		{
-			root = shift;
-			shift->left = oldparent;
-			oldparent->right = temp;
-			oldparent->parent = shift;
-			shift->parent = NULL;
+			root = y;
+			y->parent = NULL;
+		}
+		else if (shift == shift->parent->left)
+		{
+			shift->parent->left = y;
+			y->parent = shift->parent;
 		}
 		else
 		{
-			//oldparent->parent->left = shift;
-			shift->parent = oldparent->parent;
-			oldparent->parent = shift;
-			shift->left = oldparent;
-			oldparent->right = temp;
-			if (temp != NULL)
-				temp->parent = oldparent;
+			shift->parent->right = y;
+			y->parent = shift->parent;
 		}
-		//print2DUtil(root, 0);
-		return shift;
+		shift->parent = y;
+		y->left = shift;
+		return shift->parent;
 	}
 
 	void rotate(Node<T>* shift)
 	{
 		if (shift->val < shift->parent->val && shift->parent->val < shift->parent->parent->val)
 		{
-			shift = rightRotate(shift);
-			if (shift != root)
-				shift->parent->left = shift;
+			//cout << "1\n";
+			shift = rightRotate(shift->parent->parent);
 			COLOR temp = shift->color;
 			shift->color = shift->right->color;
 			shift->right->color = temp;
 		}
 		else if (shift->val > shift->parent->val && shift->parent->val < shift->parent->parent->val)
 		{
-			shift = leftRotate(shift);
-			if (shift != root)
-				shift->parent->left = shift;
-			shift = rightRotate(shift);
-			if (shift != root)
-				shift->parent->right = shift;
+			//cout << "2\n";
+			shift = leftRotate(shift->parent);
+			shift = rightRotate(shift->parent);
 			COLOR temp = shift->color;
 			shift->color = shift->right->color;
 			shift->right->color = temp;
 		}
 		else if (shift->val < shift->parent->val && shift->parent->val > shift->parent->parent->val)
 		{
-			//cout << "Lol\n";
-			shift = rightRotate(shift);
-			shift->parent->right = shift;
-			shift = leftRotate(shift);
-			shift->parent->left = shift;
+			//cout << "3\n";
+			shift = rightRotate(shift->parent);
+			shift = leftRotate(shift->parent);
 			COLOR temp = shift->color;
 			shift->color = shift->left->color;
 			shift->left->color = temp;
 		}
 		else if (shift->val > shift->parent->val && shift->parent->val > shift->parent->parent->val)
 		{
-			shift = leftRotate(shift->parent);
-			if(shift!=root)
-				shift->parent->right = shift;
+			//cout << "4\n";
+			shift = leftRotate(shift->parent->parent);
 			COLOR temp = shift->color;
 			shift->color = shift->left->color;
 			shift->left->color = temp;
@@ -176,6 +173,7 @@ public:
 			Node<T>* parentSibling = findSibling(shift->parent);
 			if (parentSibling != NULL)
 			{
+				//cout << "HUva\n";
 				if (parentSibling->color == RED)
 				{
 					shift->parent->color = BLACK;
@@ -259,7 +257,7 @@ int main()
 	while (1)
 	{
 		cout << "Insert Value\n";
-			cin >> val;
+		cin >> val;
 		if (val == 0)
 			break;
 		RBTree.Insert(val);
