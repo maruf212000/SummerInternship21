@@ -1,6 +1,6 @@
 ## 1. Competitive Programming
    # 1. Stack
-      1. Nearest Greater to right
+   1. Nearest Greater to right
       2. Nearest Greater to left
       3. Nearest Smaller to left
       4. Nearest Smaller to right
