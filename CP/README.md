@@ -1,9 +1,9 @@
 ## 1. Competitive Programming
    # 1. Stack
-   1. Nearest Greater to right
-      2. Nearest Greater to left
-      3. Nearest Smaller to left
-      4. Nearest Smaller to right
+   1. Nearest Greater to right<br>
+   2. Nearest Greater to left<br>
+   3. Nearest Smaller to left<br>
+   4. Nearest Smaller to right<br>
    # 2. LinkList
       1. ![Finding middle element in a linked list](https://practice.geeksforgeeks.org/problems/finding-middle-element-in-a-linked-list/1)
       2. Reverse a linked list
