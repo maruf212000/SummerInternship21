@@ -6,10 +6,9 @@
    4. Nearest Smaller to right<br>
    # 2. LinkList
    1. [Finding middle element in a linked list](https://practice.geeksforgeeks.org/problems/finding-middle-element-in-a-linked-list/1)<br>
-      2. Reverse a linked list
-      3. Rotate a Linked List
-      4. Reverse a Linked List in groups of given size
-      5. Intersection point in Y shaped linked lists
-      6. Detect Loop in linked list
-      7. Remove loop in Linked List
-      <a href="https://www.quora.com">Lets go to Quora</a>
+   2. [Reverse a linked list](https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/1)<br>
+   3. [Rotate a Linked List](https://practice.geeksforgeeks.org/problems/rotate-a-linked-list/1)<br>
+   4. [Reverse a Linked List in groups of given size](https://practice.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1)<br>
+   5. [Intersection point in Y shaped linked lists](https://practice.geeksforgeeks.org/problems/intersection-point-in-y-shapped-linked-lists/1/)<br>
+   6. [Detect Loop in linked list](https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1)<br>
+   7. [Remove loop in Linked List](https://practice.geeksforgeeks.org/problems/remove-loop-in-linked-list/1)<br>
