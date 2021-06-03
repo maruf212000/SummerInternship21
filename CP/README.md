@@ -14,3 +14,7 @@
    7. [Remove loop in Linked List](https://practice.geeksforgeeks.org/problems/remove-loop-in-linked-list/1)<br>
    8. [Nth node from end of linked list](https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1)<br>
    9. [Flattening a Linked List](https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1)<br>
+   
+   # 3. Recursion
+   1. [Flood fill Algorithm](https://practice.geeksforgeeks.org/problems/flood-fill-algorithm1856/1)
+   2. [Number of paths](https://practice.geeksforgeeks.org/problems/number-of-paths0926/1)
