@@ -21,7 +21,7 @@ template <typename T>
 class IRedBlackTree {
 public:
 	virtual void Insert(T val) = 0;
-	virtual void Delete() = 0;
+	virtual void Delete(T val) = 0;
 	virtual void Search() = 0;
 };
 
@@ -245,7 +245,116 @@ public:
 		print2DUtil(root->left, space);
 	}
 
-	void Delete(){}
+	Node<T>* BinarySearch(T val)
+	{
+		if (root == NULL || root->val == val)
+			return root;
+		Node<T>* shift = root;
+		while (shift != NULL && shift->val!=val)
+		{
+			if (shift->val > val)
+				shift = shift->left;
+			else
+				shift = shift->right;
+		}
+		return shift;
+	}
+
+	T Successor(Node<T>* shift)
+	{
+		if (shift->right != NULL)
+		{
+			while (shift->left != NULL)
+				shift = shift->left;
+			return shift->val;
+		}
+		Node<T>* p = shift->parent;
+		while (p != NULL && shift == p->right)
+		{
+			shift = p;
+			p = p->parent;
+		}
+		return p->val;
+	}
+
+	void DeleteCase3(Node<T>* del)
+	{
+
+	}
+
+	void DeleteCase2(Node<T>* del)
+	{
+		Node<T>* sib = findSibling(del);
+		if(sib!=NULL)
+		{
+			if (del->parent->color == BLACK && sib->left->color == BLACK && sib->right->color == BLACK && sib->color == RED)
+			{
+				if (del == del->parent->left)
+				{
+					Node<T>* shift = leftRotate(sib);
+					shift->color = BLACK;
+					shift->left->color = RED;
+				}
+				else
+				{
+					Node<T>* shift = rightRotate(sib);
+					shift->color = BLACK;
+					shift->right->color = RED;
+				}
+			}
+		}
+		DeleteCase3(del);
+	}
+
+	void DeleteCase1(Node<T>* del) {
+		if (del == root)
+			return;
+		deleteCase2(del);
+	}
+
+	void Delete(T val){
+		Node<T>* del = BinarySearch(T val);
+		if (del == NULL)
+			return;
+		if (del->left != NULL && del->right != NULL)
+		{
+			T suc = Successor(del);
+			Delete(suc);
+			del->val = suc;
+		}
+		else if (del->color == RED)
+		{
+			T suc = Successor(del);
+			Delete(suc);
+			del->val = suc;
+		}
+		else if (del->color == BLACK && (del->left->color == RED || del->right->color == RED))
+		{
+			if (del->left->color == RED)
+			{
+				del->left->parent = del->parent;
+				if (del->val > del->parent->val)
+					del->parent->right = del->left;
+				else
+					del->parent->left = del->left;
+				del->left->color = BLACK;
+			}
+			else
+			{
+				del->right->parent = del->parent;
+				if (Del->val > del->parent->val)
+					del->parent->right = del->right;
+				else
+					del->parent->left = del->right;
+				del->right->color = BLACK;
+			}
+			free(del);
+		}
+		else
+		{
+			deleteCase1(del);
+		}
+	}
 
 	void Search(){}
 };
