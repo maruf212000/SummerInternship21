@@ -14,6 +14,8 @@
    7. [Remove loop in Linked List](https://practice.geeksforgeeks.org/problems/remove-loop-in-linked-list/1)<br>
    8. [Nth node from end of linked list](https://practice.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/1)<br>
    9. [Flattening a Linked List](https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1)<br>
+   10. [Merge two sorted Linked Lists](https://practice.geeksforgeeks.org/problems/merge-two-sorted-linked-lists/1)<br>
+   11. [Pairwise swap of Linked List](https://practice.geeksforgeeks.org/problems/pairwise-swap-elements-of-a-linked-list-by-swapping-data/1)<br>
    
    # 3. Recursion
    1. [Flood fill Algorithm](https://practice.geeksforgeeks.org/problems/flood-fill-algorithm1856/1)
