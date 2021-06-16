@@ -105,8 +105,28 @@ public:
 		}
 		cout << "\n";
 	}
+
+	void dfs_recursive(T source, map<T, bool>& visited)
+	{
+		cout << source << " ";
+		visited[source] = true;
+		Node<T>* shift = list[source].head;
+		while (shift != NULL)
+		{
+			if (visited[shift->val] == false)
+			{
+				dfs_recursive(shift->val, visited);
+			}
+			shift = shift->next;
+		}
+	}
+
 	void DFS(T source)
 	{
+		map<int, bool>visited;
+		visited[source] = true;
+		cout << "DFS from source " << source << endl;
+		dfs_recursive(source, visited);
 	}
 };
 
@@ -114,12 +134,12 @@ int main()
 {
 	Graph<int> g;
 	g.addEdge(0, 1);
-	g.addEdge(0, 2);
+	g.addEdge(0, 9);
 	g.addEdge(1, 2);
 	g.addEdge(2, 0);
 	g.addEdge(2, 3);
-	g.addEdge(3, 3);
+	g.addEdge(9, 3);
 	g.printAdjacencyList();
-	g.BFS(2);
+	g.DFS(2);
 
 }
